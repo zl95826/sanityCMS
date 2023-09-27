@@ -26,7 +26,7 @@ export default {
         layout: 'radio',
       },
     },
-    {name: 'image', type: 'image', title: 'Image', options: {hotspot: true}},
+    {name: 'image', type: 'array', title: 'Image', of: [{type: 'propertyImage'}]},
     {name: 'pricePerNight', type: 'number', title: 'Price Per Night'},
     {name: 'beds', type: 'number', title: 'Beds'},
     {name: 'bedrooms', type: 'number', title: 'Bedrooms'},
@@ -41,6 +41,7 @@ export default {
     },
     {name: 'id', type: 'number', title: 'ID'},
     {name: 'description', type: 'string', title: 'Description'},
+    {name: 'reviews', type: 'array', title: 'Reviews', of: [{type: 'review'}]},
   ],
   //   In the "fields" array, you describe the fields/attributes available for this document type.
   //   In this case, you have one field, which is an object with "name," "type," and "title" properties.
