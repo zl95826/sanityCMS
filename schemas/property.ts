@@ -10,7 +10,7 @@ export default {
   //   The type: 'document' property indicates that this is a document type,
   //   allowing you to create new "property" documents in the studio.
   fields: [
-    {name: 'name', type: 'string', title: 'Name'},
+    {name: 'title', type: 'string', title: 'Title'},
     {name: 'built', type: 'datetime', title: 'Built Year'},
     {name: 'location', type: 'geopoint', title: 'Location'},
     {
@@ -26,7 +26,15 @@ export default {
         layout: 'radio',
       },
     },
-    {name: 'image', type: 'array', title: 'Image', of: [{type: 'propertyImage'}]},
+    {
+      name: 'mainImage',
+      title: 'Main Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {name: 'images', type: 'array', title: 'Images', of: [{type: 'propertyImage'}]},
     {name: 'pricePerNight', type: 'number', title: 'Price Per Night'},
     {name: 'beds', type: 'number', title: 'Beds'},
     {name: 'bedrooms', type: 'number', title: 'Bedrooms'},
@@ -35,14 +43,21 @@ export default {
       type: 'slug',
       title: 'Slug',
       options: {
-        source: 'name',
+        source: 'title',
         maxLength: 200,
       },
     },
     {name: 'id', type: 'number', title: 'ID'},
     {name: 'description', type: 'string', title: 'Description'},
     {name: 'reviews', type: 'array', title: 'Reviews', of: [{type: 'review'}]},
+    {name: 'host', type: 'host', title: 'Host'},
   ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'pricePerNight',
+    },
+  },
   //   In the "fields" array, you describe the fields/attributes available for this document type.
   //   In this case, you have one field, which is an object with "name," "type," and "title" properties.
   //   The "name" property defines the key in the data where the studio will store the field's value.
