@@ -22,6 +22,7 @@ export default {
           {title: 'House', value: 'house'},
           {title: 'Flat', value: 'flat'},
           {title: 'Apartment', value: 'apartment'},
+          {title: 'Bungalow', value: 'bungalow'},
         ],
         layout: 'radio',
       },
@@ -56,6 +57,15 @@ export default {
     select: {
       title: 'title',
       subtitle: 'pricePerNight',
+      media: 'mainImage',
+    },
+    prepare(selection: {title: string; subtitle: number; media: any}) {
+      const {title, subtitle, media} = selection
+      return {
+        title: title,
+        subtitle: `$${subtitle}`,
+        media,
+      }
     },
   },
   //   In the "fields" array, you describe the fields/attributes available for this document type.

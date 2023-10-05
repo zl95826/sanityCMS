@@ -3,11 +3,6 @@ export default {
   title: 'Review',
   type: 'object',
   fields: [
-    {
-      title: 'Title',
-      name: 'title',
-      type: 'string',
-    },
     {name: 'reviewDescription', title: 'Review Description', type: 'string'},
     {
       title: 'Release Date',
@@ -37,7 +32,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'reviewDescription',
       subtitle: 'releaseDate',
     },
   },
